@@ -6,6 +6,7 @@ import java.util.List;
 public class Job {
 
     public String name;
+    public int id;
 
     public int baseHp = 0;
     public int baseSp = 0;
