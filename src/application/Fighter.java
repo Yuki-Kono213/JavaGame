@@ -6,7 +6,7 @@ public class Fighter extends Job {
 	    name = "戦士";
 	
 	    baseHp = 50;
-	    baseSp = 20;
+	    baseSp = 10;
 	    baseAtk = 20;
 	    baseDef = 15;
 	    baseSkl = 25;
