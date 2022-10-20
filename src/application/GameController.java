@@ -53,7 +53,7 @@ public class GameController {
 		
 		tablePerson.getItems().clear();
 		
-		tablePerson.getItems().add(new Person(Util.nameList[0],1, Util.jobList[0],100,50,25,20,20,25,50,10,15));
+		tablePerson.getItems().add(new Person(Util.nameList[0],1,Util.jobList[0],100,50,25,20,20,25,50,10,15));
 		
 		tablePerson.getItems().add(new Person(Util.nameList[1],1,Util.jobList[1],80,60,15,10,30,20,45,25,20));
 	}

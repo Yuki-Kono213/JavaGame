@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Job {
 
-    public String name;
+    public String name = "一般人";
     public int id;
 
     public int baseHp = 0;

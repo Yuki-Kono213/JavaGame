@@ -19,6 +19,12 @@ public class Person {
     public int mat;
     public int mdf;
     public ArrayList<Magic> useMagicList = new ArrayList<>();
+    
+    public Weapon weapon = Util.weaponList.get(0);
+    public Armor armor = Util.armorList.get(0);
+    public Sub sub = Util.subList.get(0);
+    public Equip equip1 = Util.equipList.get(0);
+    public Equip equip2 = Util.equipList.get(0);
 
     
     public Person(String name, int level, Job job, int hp, int sp, int atk, int def, int skl, int spd, int luc, int mat, int mdf){
@@ -37,31 +43,40 @@ public class Person {
     }
 
     public int HPCalc(){
-        return this.hp + this.job.baseHp - this.hpDamage;
+        return this.hp + this.job.baseHp + this.weapon.hp + this.armor.hp + 
+        		this.sub.hp + this.equip1.hp +  this.equip2.hp	- this.hpDamage;
     }
     public int SPCalc(){
-        return this.sp + this.job.baseSp - this.spDamage;
+        return this.sp + this.job.baseSp + this.weapon.sp + this.armor.sp + 
+        		this.sub.sp + this.equip1.sp +  this.equip2.sp - this.spDamage;
     }
     public int ATKCalc(){
-        return this.atk + this.job.baseAtk;
+        return this.atk + this.job.baseAtk+ this.weapon.atk + this.armor.atk + 
+        		this.sub.atk + this.equip1.atk +  this.equip2.atk;
     }
     public int DEFCalc(){
-        return this.def + this.job.baseDef;
+        return this.def + this.job.baseDef+ this.weapon.def + this.armor.def + 
+        		this.sub.def + this.equip1.def +  this.equip2.def;
     }
     public int SKLCalc(){
-        return this.skl + this.job.baseSkl;
+        return this.skl + this.job.baseSkl+ this.weapon.skl + this.armor.skl + 
+        		this.sub.skl + this.equip1.skl +  this.equip2.skl;
     }
     public int SPDCalc(){
-        return this.spd + this.job.baseSpd;
+        return this.spd + this.job.baseSpd+ this.weapon.spd + this.armor.spd + 
+        		this.sub.spd + this.equip1.spd +  this.equip2.spd;
     }
     public int LUCCalc(){
-        return this.luc + this.job.baseLuc;
+        return this.luc + this.job.baseLuc+ this.weapon.luc + this.armor.luc + 
+        		this.sub.luc + this.equip1.luc +  this.equip2.luc;
     }
     public int MATCalc(){
-        return this.mat + this.job.baseMat;
+        return this.mat + this.job.baseMat+ this.weapon.mat + this.armor.mat + 
+        		this.sub.mat + this.equip1.mat +  this.equip2.mat;
     }
     public int MDFCalc(){
-        return this.mdf + this.job.baseMdf;
+        return this.mdf + this.job.baseMdf+ this.weapon.mdf + this.armor.mdf + 
+        		this.sub.mdf + this.equip1.mdf +  this.equip2.mdf;
     }
     public void DispParameter(){
         System.out.println("名前:" + this.name);
