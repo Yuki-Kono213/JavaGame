@@ -127,9 +127,14 @@ public class Person {
 
 	  public Integer getSKL(){ return SKLCalc(); }
 	  public void setSKL(Integer skl){ this.skl = skl; }
-
+	  
+	  public Integer getHit(){ return (this.skl + this.job.baseSkl) * 3 + this.weapon.skl + this.armor.skl + 
+      		this.sub.skl + this.equip1.skl +  this.equip2.skl; }
+	  
 	  public Integer getSPD(){ return SPDCalc(); }
 	  public void setSPD(Integer spd){ this.spd = spd; }
+	  public Integer getAvo(){ return (this.spd + this.job.baseSpd) * 3 + this.weapon.spd + this.armor.spd + 
+	      		this.sub.spd + this.equip1.spd +  this.equip2.spd; }
 
 	  public Integer getLUC(){ return LUCCalc(); }
 	  public void setLUC(Integer luc){ this.luc = luc; }

@@ -1,13 +1,7 @@
 package application;
 
-import java.io.IOException;
-
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
-import javafx.scene.layout.BorderPane;
-import javafx.stage.Stage;
 
 public class PersonController {
 
@@ -66,16 +60,6 @@ public class PersonController {
 	
 	public void SetTable(Person newVal) {
 
-			try {
-				//BorderPane root = (BorderPane)FXMLLoader.load(getClass().getResource("Person.fxml"));
-				FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Person.fxml"));
-				BorderPane root = (BorderPane) fxmlLoader.load();
-		        //sc2 = new Scene(root2);
-				Scene scene = new Scene(root,600,600);
-	            PersonController gc = (PersonController) fxmlLoader.getController();
-				Stage stage = new Stage();
-				scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
-				stage.setScene(scene);
 
 				labelName.setText("名前" + newVal.name);
 				
@@ -83,23 +67,23 @@ public class PersonController {
 				
 				labelJob.setText("職業" + newVal.job.name);
 			    
-				labelLifePoint.setText("耐久"+String.valueOf(newVal.hp));
+				labelLifePoint.setText("耐久"+String.valueOf(newVal.hp + newVal.job.baseHp));
 				
-				labelSkillPower.setText("技力" +String.valueOf(newVal.sp));
+				labelSkillPower.setText("技力" +String.valueOf(newVal.sp + newVal.job.baseSp));
 				
-				labelSTR.setText("腕力" + String.valueOf(newVal.atk));
+				labelSTR.setText("腕力" + String.valueOf(newVal.atk + newVal.job.baseAtk));
 				
-				labelCON.setText("頑強" + String.valueOf(newVal.def));
+				labelCON.setText("頑強" + String.valueOf(newVal.def + newVal.job.baseDef));
 				
-				labelDEX.setText("技量" + String.valueOf(newVal.skl));
+				labelDEX.setText("技量" + String.valueOf(newVal.skl + newVal.job.baseSkl));
 				
-				labelAGI.setText("速度" + String.valueOf(newVal.spd));
+				labelAGI.setText("速度" + String.valueOf(newVal.spd + newVal.job.baseSpd));
 				
-				labelLUC.setText("幸運" + String.valueOf(newVal.luc));
+				labelLUC.setText("幸運" + String.valueOf(newVal.luc + newVal.job.baseLuc));
 				
-				labelMAG.setText("魔力" + String.valueOf(newVal.mat));
+				labelMAG.setText("魔力" + String.valueOf(newVal.mat + newVal.job.baseMat));
 				
-				labelMEN.setText("精神" + String.valueOf(newVal.mdf));
+				labelMEN.setText("精神" + String.valueOf(newVal.mdf + newVal.job.baseMdf));
 				
 				labelHP.setText("HP  " +String.valueOf(newVal.getHP()));
 				
@@ -109,11 +93,11 @@ public class PersonController {
 				
 				labelDEF.setText("防御" + String.valueOf(newVal.getDEF()));
 				
-				labelHIT.setText("命中" + String.valueOf(newVal.getSKL() * 5));
+				labelHIT.setText("命中" + String.valueOf(newVal.getHit()));
 				
-				labelAVO.setText("回避" + String.valueOf(newVal.getSPD() * 5));
+				labelAVO.setText("回避" + String.valueOf(newVal.getAvo()));
 				
-				labelCRI.setText("必殺" + String.valueOf(newVal.getLUC() * 2));
+				labelCRI.setText("必殺" + String.valueOf(newVal.getLUC()));
 				
 				labelMAT.setText("魔攻" + String.valueOf(newVal.getMAT()));
 				
@@ -128,13 +112,8 @@ public class PersonController {
 				labelEqu1.setText(newVal.equip1.name);
 				
 				labelEqu2.setText(newVal.equip2.name);
-				stage.show();
 				
-
-			} catch (IOException e) {
-				// TODO 自動生成された catch ブロック
-				e.printStackTrace();
-			}
+				Main.mainStage.hide();
         
 	}
 

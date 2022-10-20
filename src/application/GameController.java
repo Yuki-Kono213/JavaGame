@@ -78,6 +78,7 @@ public class GameController {
 					stage.setScene(scene);
 					pc.SetTable(newVal);
 					stage.show();
+				    stage.setOnCloseRequest(event -> saveStatus());
 				}
 				
 
@@ -87,6 +88,10 @@ public class GameController {
 			}
         });
         
+	}
+	
+	private void saveStatus() {
+		Main.mainStage.show();
 	}
 
 }
