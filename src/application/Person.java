@@ -21,7 +21,7 @@ public class Person {
     public ArrayList<Magic> useMagicList = new ArrayList<>();
     
     public Weapon weapon = Util.weaponList.get(0);
-    public Armor armor = Util.armorList.get(0);
+    public Armor armor = Util.armorList.get(1);
     public Sub sub = Util.subList.get(0);
     public Equip equip1 = Util.equipList.get(0);
     public Equip equip2 = Util.equipList.get(0);

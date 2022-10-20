@@ -1,9 +1,15 @@
 package application;
 
+import java.io.IOException;
+
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
 
 public class GameController {
 
@@ -53,8 +59,34 @@ public class GameController {
 		
 		tablePerson.getItems().clear();
 		
-		tablePerson.getItems().add(new Person(Util.nameList[0],1,Util.jobList[0],100,50,25,20,20,25,50,10,15));
+		tablePerson.getItems().add(new Person(Util.nameList[0],1,Util.jobList[1],100,50,25,20,20,25,50,10,15));
 		
-		tablePerson.getItems().add(new Person(Util.nameList[1],1,Util.jobList[1],80,60,15,10,30,20,45,25,20));
+		tablePerson.getItems().add(new Person(Util.nameList[1],1,Util.jobList[2],80,60,15,10,30,20,45,25,20));
+		
+		tablePerson.getSelectionModel().selectedItemProperty().addListener((observable, oldVal, newVal) ->
+        {
+			try {
+				if(newVal.name != "") {
+					//BorderPane root = (BorderPane)FXMLLoader.load(getClass().getResource("Person.fxml"));
+					FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Person.fxml"));
+					BorderPane root = (BorderPane) fxmlLoader.load();
+			        //sc2 = new Scene(root2);
+					Scene scene = new Scene(root,600,600);
+		            PersonController pc = (PersonController) fxmlLoader.getController();
+					Stage stage = new Stage();
+					scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+					stage.setScene(scene);
+					pc.SetTable(newVal);
+					stage.show();
+				}
+				
+
+			} catch (IOException e) {
+				// TODO 自動生成された catch ブロック
+				e.printStackTrace();
+			}
+        });
+        
 	}
+
 }
